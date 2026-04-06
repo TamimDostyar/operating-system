@@ -13,6 +13,6 @@ int main()
     std::cin >> gpa;
 
     // now get those and print them
-    std::cout << "Name: " << name << " GPA: " << gpa << std::endl;
+    std::cout << "Name: " << name << " GPA: " << gpa << "\n";
     return 0;
 }
