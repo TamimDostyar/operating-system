@@ -1,127 +1,52 @@
-# Light Project 5: File System, Syscalls, and TamimOS v1.0 Release (Week 5)
+# Light Project 5: Linux Kernel Module and Custom System Call
 
-## Project Overview
-This capstone integrates all prior subsystems into one working release.
-You will implement a flat file system on a RAM disk, expose system calls, and package TamimOS v1.0.
+## Project Goal
+Go inside Linux kernel internals by creating a loadable kernel module and adding a custom system call.
 
-## Dependency Chain
+## What I Will Build
 
-- Week 1: Boot and UART for runtime diagnostics.
-- Week 2: Shell as interaction layer and test harness.
-- Week 3: Memory subsystem for file and process structures.
-- Week 4: Scheduler for concurrent user program execution.
+- loadable kernel module
+- custom /proc entry
+- custom system call in kernel source
+- user program that invokes the new syscall
 
-This week validates system-level integration quality, not just isolated features.
+## Required Features
 
-## Goal
-Build persistent-like file operations over a virtual disk and define user-kernel service boundaries via syscalls.
+1. Kernel module
+- Build and load module.
+- Expose system info via /proc/tamimos_info (or similar).
+- Support clean module unload.
 
-Required file operations:
+2. Custom system call
+- Add syscall implementation in kernel source tree.
+- Register syscall number in the correct architecture table.
+- Rebuild kernel and boot into the modified kernel.
 
-- create
-- read
-- write
-- delete
-- list
+3. User-space caller
+- Write a C program that invokes the new syscall.
+- Validate return values and error handling.
 
-Required syscall capabilities:
+4. Documentation
+- Keep build and run instructions clear and reproducible.
+- Document kernel version and config used.
 
-- open
-- read
-- write
-- exit
+## Suggested Structure
 
-## What You Should Have After This
+- kernel-module/tamimos_module.c
+- kernel-patch/ (notes and patch files)
+- userspace/call_tamimos_syscall.c
 
-1. Implement core file system metadata for a flat namespace.
-2. Design a minimal syscall interface and dispatch layer.
-3. Enforce kernel-side validation for user requests.
-4. Integrate shell commands with file and process primitives.
-5. Package and document a release-quality OS milestone.
+## Testing Checklist
 
-## Functional Requirements
+- Module inserts and removes without errors.
+- /proc entry prints expected info.
+- Custom syscall returns expected value.
+- Caller program works on modified kernel.
 
-1. RAM disk file system
-- Initialize fixed-size RAM disk region.
-- Implement flat directory table (no nested directories required).
-- Track file names, sizes, and data locations.
+## OSTEP Connection
 
-2. File operations
-- create(name)
-- write(name, data)
-- read(name)
-- delete(name)
-- list()
+This project maps to user-kernel boundary, system call flow, and kernel-level programming.
 
-3. Syscall layer
-- Define syscall numbers and trap/dispatch mechanism.
-- Implement kernel handlers for open/read/write/exit.
-- Validate pointers, lengths, and file identifiers before access.
+## Deliverable
 
-4. User program support
-- Provide at least one user program that writes and reads a file via syscalls.
-- Show orderly process exit through syscall.
-
-5. Release packaging
-- Version as TamimOS v1.0.
-- Include build/run instructions and architecture summary.
-- Push source and documentation to GitHub repository.
-
-## What To Build
-
-1. Code deliverables
-- File system module(s).
-- Syscall entry/dispatch implementation.
-- User-space sample programs or test programs.
-- Updated shell commands for file manipulation.
-
-2. Documentation deliverables
-- Release notes for TamimOS v1.0.
-- API-level syscall description.
-- File system on-disk/in-memory layout summary.
-
-3. Demonstration deliverables
-- Transcript or screenshot sequence showing:
-- boot banner
-- shell prompt
-- file create/write/read/list/delete
-- two-process scheduling evidence (regression from Week 4)
-
-## Suggested Shell Command Additions
-
-- ls
-- touch <name>
-- cat <name>
-- write <name> <text>
-- rm <name>
-
-## Validation and Test Plan
-
-1. File operation tests
-- Create multiple files with distinct names.
-- Write/read variable-length payloads.
-- Delete and confirm removal.
-- Attempt read on deleted file and confirm error response.
-
-2. Syscall tests
-- Valid syscall execution path.
-- Invalid syscall number handling.
-- Invalid user pointer or oversized read/write handling.
-
-3. Integration tests
-- Run shell and scheduled user process concurrently.
-- Ensure file system operations remain correct under scheduling.
-
-## Done Criteria
-
-- create/read/write/delete/list all work.
-- Syscalls run correctly and reject invalid requests safely.
-- Full flow works: boot, shell, memory, scheduler, file operations.
-
-## Build Reflection
-
-Include a short reflection section in your release notes:
-
-1. Most difficult bug and how you diagnosed it.
-2. One subsystem you would redesign for performance.
-3. Plan for TamimOS v1.1 (for example: interrupt-driven I/O, hierarchical FS, IPC).
+A modified Linux kernel setup where a custom syscall is running and callable from user space.
