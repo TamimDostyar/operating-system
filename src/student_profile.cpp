@@ -1,14 +1,14 @@
 #include <iostream>
 #include <string>
 
-using std ::cin;
+using std::cin;
 using std::cout;
 using std::endl;
-using std::string;
+using str = std::string;
 
 int main()
 {
-    string name;
+    str name;
     char middleName;
     int age;
     double gpa;
@@ -17,7 +17,7 @@ int main()
     bool is_On_deans;
 
     // helper
-    string standing;
+    str standing;
 
     // collect input
     cout << "What is your name? ";
