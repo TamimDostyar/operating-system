@@ -1,26 +1,31 @@
 #include <stdio.h>
 #include <string.h>
 
-int main()
-{
-    // variables
-    char note[100] = "Operating System Class - This OS will be written from scratch";
-    int ready = 0;
+int main() {
+  // variables
+  char note[100] =
+      "Operating System Class - This OS will be written from scratch";
+  int ready = 0;
 
-    // query
-    printf("Are you ready to begin? 1 for Yes and 0 for No: ");
-    scanf("%d", &ready);
+  char student_name[200] = "";
 
-    if (ready == 1)
-    {
-        printf("Let's do it! \n");
-    }
-    else
-    {
-        printf("nah man, try again! \n");
-    }
+  // compare strings
+  if (strcmp(student_name, "") == 0) {
+    printf("Please enter your name: ");
+    scanf("%s", student_name);
+  }
 
-    printf("%s\n", note);
+  // query
+  printf("Are you ready to begin? 1 for Yes and 0 for No: ");
+  scanf("%d", &ready);
 
-    return 0;
+  if (ready == 1) {
+    printf("Let's do it! \n");
+  } else {
+    printf("nah man, try again! \n");
+  }
+
+  printf("%s\n", note);
+
+  return 0;
 }

@@ -1,1 +1,0 @@
-Boot Loader will be written on this folder
