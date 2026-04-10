@@ -7,9 +7,6 @@
 #include <dirent.h>
 #include <errno.h>
 
-// global variables
-
-
 typedef struct {
     char *name;
     void (*func)(char *args);
