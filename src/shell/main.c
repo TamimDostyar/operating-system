@@ -1,22 +1,19 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <sys/time.h>
-#include <assert.h>
-#include "common.h"
+#include <string.h>
+#include "parser.h"
 
-
-int main(int argc, char *argv[]){
-    if (argc != 2){
-        fprintf(stderr, "Usage: cpu <string>\n");
-        exit(1);
-    }
-
-    char *str = argv[1];
-
+int main(void) {
+    char input[1024];
+    
+    // condition is true 1 = true
     while (1) {
-        Spin(1);
-        printf("%s\n", str);
+        printf("commander> ");
+        fgets(input, sizeof(input), stdin);
+        input[strlen(input) -1] = '\0';
+        
+        if (strlen(input) > 0) {
+            parser(input);
+        }
     }
-
     return 0;
 }
