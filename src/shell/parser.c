@@ -9,7 +9,12 @@ void parser(char *input) {
         printf("Error: empty input\n");
         return;
     }
-    is_builtin(input);
+
+    char *cmd = strtok(input, " ");
+        
+    char *args = strtok(NULL, "");
+    
+    is_builtin(input, args);
 }
 
 
