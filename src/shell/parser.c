@@ -14,7 +14,7 @@ void parser(char *input) {
         
     char *args = strtok(NULL, "");
     
-    is_builtin(input, args);
+    is_builtin(cmd, args);
 }
 
 

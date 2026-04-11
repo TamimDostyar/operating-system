@@ -7,7 +7,7 @@ int main(void) {
     
     // condition is true 1 = true
     while (1) {
-        printf("commander> ");
+        printf("<OS>: ");
         fgets(input, sizeof(input), stdin);
         // input[strlen(input) -1] = '\0';
         input[strcspn(input, "\n")] = '\0';
