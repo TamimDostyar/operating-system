@@ -9,7 +9,6 @@
 #include <errno.h>
 
 
-
 void quitApplication(char *args){
     (void)args;
     printf("Exiting...\n");
@@ -54,5 +53,5 @@ void listDirectory(char *args){
 
 void clearShell(char *args){
     (void)args;
-    printf("Hello, world!\n");
+    printf("\ec");
 }

@@ -17,5 +17,3 @@ void parser(char *input) {
     is_builtin(cmd, args);
 }
 
-
-
