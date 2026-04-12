@@ -1,4 +1,4 @@
-# TAMIMOS
+# BuddyOS
 <p align="center">
   <img src="asset/cIcon.png" width="32%" />
 </p>
