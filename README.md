@@ -1,5 +1,5 @@
 # TAMIMOS
-<img src="asset/cIcon.png" width="32" />
+<img src="asset/cIcon.png" width="32%" />
 
 Educational implementations of core operating-system concepts in **C** on **Linux**. The repository is organized as a sequence of self-contained milestones (process control, memory management, concurrency, file systems, and kernel interfaces). Each milestone is a runnable artifact on a stock Linux system rather than a single replacement kernel.
 
