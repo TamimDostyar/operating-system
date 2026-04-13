@@ -33,11 +33,11 @@ Detailed requirements and acceptance criteria for each milestone are under `docs
 
 ```
 docs/          Assignment specifications and build notes
-src/shell/     Interactive shell (milestone 1)
-src/alloc/     Memory allocator (milestone 2; placeholder until implemented)
-src/thread/    Threads and synchronization (milestone 3)
-src/fs/        File-system implementation (milestone 4)
-src/kernel/    Module and syscall-related sources (milestone 5)
+shell/         Interactive shell (milestone 1)
+alloc/         Memory allocator (milestone 2; placeholder until implemented)
+thread/        Threads and synchronization (milestone 3)
+fs/            File-system implementation (milestone 4)
+kernel/        Module and syscall-related sources (milestone 5)
 ```
 
 ## Prerequisites
@@ -52,7 +52,7 @@ Exact versions and steps are specified in the assignment documents under `docs/`
 
 ## Building and running
 
-There is no single top-level build yet; each milestone is built and invoked according to its spec. The shell under `src/shell/` may include a local README with run instructions (for example, invoking the `mysh` binary after compilation).
+There is no single top-level build yet; each milestone is built and invoked according to its spec. The shell under `shell/` may include a local README with run instructions (for example, invoking the `mysh` binary after compilation).
 
 ## Documentation
 

@@ -36,11 +36,11 @@ Build a custom userspace file system with FUSE that can be mounted and used with
 
 ## Suggested Structure
 
-- src/fs/fuse_main.c
-- src/fs/inode.c
-- src/fs/bitmap.c
-- src/fs/dir.c
-- src/fs/block_io.c
+- fs/fuse_main.c
+- fs/inode.c
+- fs/bitmap.c
+- fs/dir.c
+- fs/block_io.c
 
 ## Testing Checklist
 

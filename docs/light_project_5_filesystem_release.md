@@ -32,9 +32,9 @@ Go inside Linux kernel internals by creating a loadable kernel module and adding
 
 ## Suggested Structure
 
-- kernel-module/tamimos_module.c
-- kernel-patch/ (notes and patch files)
-- userspace/call_tamimos_syscall.c
+- kernel/tamimos_module.c
+- kernel/patches/ (notes and patch files)
+- kernel/userspace/call_tamimos_syscall.c
 
 ## Testing Checklist
 

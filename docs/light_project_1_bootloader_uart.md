@@ -37,11 +37,11 @@ Build a Unix shell in C that can be used in a real terminal.
 
 ## Suggested Structure
 
-- src/shell/main.c
-- src/shell/parser.c
-- src/shell/executor.c
-- src/shell/builtins.c
-- src/shell/history.c
+- shell/src/manager/main.c
+- shell/src/parser/parser.c
+- shell/src/executer/executer.c
+- shell/src/builtin/builtins.c
+- shell/src/history/history.c
 
 ## Testing Checklist
 

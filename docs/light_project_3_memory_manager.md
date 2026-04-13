@@ -35,11 +35,11 @@ Build a user-level thread library, then add synchronization primitives and test 
 
 ## Suggested Structure
 
-- src/thread/thread.c
-- src/thread/mutex.c
-- src/thread/condvar.c
-- src/thread/queue.c
-- src/thread/hashmap.c
+- thread/thread.c
+- thread/mutex.c
+- thread/condvar.c
+- thread/queue.c
+- thread/hashmap.c
 
 ## Testing Checklist
 

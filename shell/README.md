@@ -1,19 +1,14 @@
 Below is the sample shell with very minimal work:
     
     <OS>: pwd
-        /Users/tamimdostyar/Documents/personal/operating-system/src/shell
+        /Users/tamimdostyar/Documents/personal/operating-system/shell
     <OS>: ls
         .
         ..
-        builtins.c
+        src
         mysh
-        parser.h
-        executer.c
         README.md
-        builtins.h
-        main.c
-        executer.h
-        parser.c
+        remaining.txt
     <OS>: help
         exit: To exit shell
         cd: To move to a directory

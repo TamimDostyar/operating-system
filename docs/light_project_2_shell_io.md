@@ -33,8 +33,8 @@ Implement a memory allocator in C as a drop-in replacement for the malloc family
 
 ## Suggested Structure
 
-- src/alloc/allocator.c
-- src/alloc/allocator.h
+- alloc/allocator.c
+- alloc/allocator.h
 - tests/alloc_basic.c
 - tests/alloc_stress.c
 
