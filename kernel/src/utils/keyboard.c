@@ -1,6 +1,6 @@
-#include <stdio.h>
+// #include <stdio.h>
 
 
-void keboard(){
-    printf("logic for the keyboard");
-}
+// void keboard(){
+//     printf("logic for the keyboard");
+// }

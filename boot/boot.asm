@@ -4,6 +4,8 @@
 [bits 16]
 [ORG 0x7C00]
 
+jmp start
+
 %include "boot/gdt.asm"
 
 start:
@@ -21,14 +23,14 @@ start:
 
 load_kernel:
     mov ah, 0x02            ; BIOS function: read sectors
-    mov al, 1               ; Number of sectors to read (adjust for larger kernel)
+    mov al, 4                ; Number of sectors to read (2KB — enough for current kernel)
     mov ch, 0               ; Cylinder 0
     mov cl, 2               ; Sector 2 (sector 1 is bootloader itself)
     mov dh, 0               ; Head 0
     mov dl, 0x80            ; Drive 0x80 = first hard disk (change to 0x00 for floppy)
-    mov bx, 0x1000          ; Destination segment
-    mov es, bx
-    xor bx, bx              ; Destination offset = 0 (so address = 0x1000:0x0000 = 0x1000 linear)
+    xor bx, bx
+    mov es, bx              ; Destination segment = 0x0000
+    mov bx, 0x1000          ; Destination offset = 0x1000 (so address = 0x0000:0x1000 = 0x1000 linear)
     int 0x13
     jc disk_error           ; If carry set, error occurred
 

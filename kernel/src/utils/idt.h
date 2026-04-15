@@ -9,6 +9,10 @@ struct idt_entry {
 } __attribute__((packed));
 
 struct idt_ptr {
-    uint16_t limit;      // Size of IDT minus 1
+    uint16_t limit;      // Size of IDT
     uint32_t base;       // Base address of IDT
 } __attribute__((packed));
+
+
+void idt_install();
+void process_init();
