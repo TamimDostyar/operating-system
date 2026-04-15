@@ -3,6 +3,8 @@
   <img src="asset/cIcon.png" width="32%" />
 </p>
 
+![EXAMPLE](asset/kernel.png)
+
 Educational implementations of core operating-system concepts in **C** for **BuddyOS**—an OS built from scratch. The repository is organized as milestones that build the OS in dependency order (boot path, kernel memory, process scheduling, file system, system calls, and shell). A minimal **cross-compiler / emulator** setup (for example QEMU) is only a development convenience, not a dependency on a full desktop OS as the runtime.
 
 
