@@ -1,18 +1,22 @@
+#ifndef IDT_H
+#define IDT_H
+
 #include <stdint.h>
 
 struct idt_entry {
-    uint16_t base_low;      // Lower 16 bits of handler function address
-    uint16_t sel;               // Kernel segment selector
-    uint8_t  always0;    // Must be zero
-    uint8_t  flags;      // type, DPL, present
-    uint16_t base_high;  // Upper 16 bits of handler address
+    uint16_t base_low;
+    uint16_t sel;
+    uint8_t  always0;
+    uint8_t  flags;
+    uint16_t base_high;
 } __attribute__((packed));
 
 struct idt_ptr {
-    uint16_t limit;      // Size of IDT
-    uint32_t base;       // Base address of IDT
+    uint16_t limit;
+    uint32_t base;
 } __attribute__((packed));
 
+void idt_set_gate(uint8_t num, uint32_t base, uint16_t sel, uint8_t flags);
+void idt_install(void);
 
-void idt_install();
-void process_init();
+#endif

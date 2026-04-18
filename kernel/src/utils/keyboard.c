@@ -59,19 +59,14 @@ void keyboard_init(void) {
 
 void keyboardHandler(void) {
     uint8_t scancode = inb(0x60);
+    if (scancode & 0x80)    /* ignore key-release events */
+        return;
     char c = ascii_normal[scancode];
     keyboard_buffer[buffer_head] = c;
-
-
     buffer_head = (buffer_head + 1) % 256;
 }
 
 char keyboard_getchar(void) {
-     // bit 0 of status register: o
-     // only read port 0x60 when keyboard has new data ready
-    if (!(inb(0x64) & 0x01)) 
-        return 0;
-    keyboardHandler();
     if (buffer_head == buffer_tail)
         return 0;
     char c = keyboard_buffer[buffer_tail];
