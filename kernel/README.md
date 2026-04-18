@@ -59,7 +59,7 @@ Handles reading keys from the keyboard. The keyboard sends a **scancode** (a num
 
 ## `utils/idt.h` / `utils/idt.c`
 
-Sets up the **Interrupt Descriptor Table (IDT)** — a table that tells the CPU which function to call when an interrupt fires (keyboard press, CPU error, etc.). Also reprograms the **PIC** (Programmable Interrupt Controller) so hardware interrupts don't collide with CPU error codes.
+Sets up the **Interrupt Descriptor Table (IDT)** — a table that tells the CPU which function to call when an interrupt fires (keyboard press, CPU error, etc.). Also reprograms the **PIC Programmable Interrupt Controller** (Programmable Interrupt Controller) so hardware interrupts don't collide with CPU error codes.
 
 | Function | What it does |
 |----------|-------------|
