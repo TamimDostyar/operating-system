@@ -11,8 +11,6 @@ void kmain(void) {
     // set interrupt 
     __asm__ volatile("sti");
     vga_write("Kernell is working and running successfully\n");
-    vga_lock_cursor();
-
     vga_write("buddyOS> ");
     vga_lock_cursor();
 

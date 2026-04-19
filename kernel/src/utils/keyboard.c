@@ -40,6 +40,7 @@ int keyboard_init(void) {
     ascii_normal[scanDot] = '.';
     ascii_normal[scanSlash] = '/';
     ascii_normal[scanBackQuote] = '`';
+    ascii_normal[scanBackSlash] = '\\';
     
     // special cases
     ascii_normal[scanEnter]     = '\n';
@@ -134,12 +135,19 @@ void keyboardHandler(void) {
             case scanMinus: c = '_'; break;
             case scanEqual: c = '+'; break;
             case scanSlash: c = '?'; break;
+            case scanLeftBracket: c = '{'; break;
+            case scanRightBracket: c = '}'; break;
+            case scanBackSlash: c = '|'; break;
+            case scanBackQuote: c = '~'; break;
+            case scanComma: c = '<'; break;
+            case scanDot: c = '>'; break;
+            
         }
     }
-    if (c != 0) {
-        keyboard_buffer[buffer_head] = c;
-        buffer_head = (buffer_head + 1) % 256;
-    }
+
+    keyboard_buffer[buffer_head] = c;
+    buffer_head = (buffer_head + 1) % 256;
+
 }
 
 char keyboard_getchar(void) {

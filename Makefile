@@ -60,8 +60,8 @@ kernel: $(KERNEL_BIN)
 os-image: boot kernel
 	cat $(BOOT_BIN) $(KERNEL_BIN) > $(OS_IMAGE)
 	@SIZE=$$(wc -c < $(OS_IMAGE)); \
-	  if [ $$SIZE -lt 5120 ]; then \
-	    dd if=/dev/zero bs=1 count=$$((5120 - $$SIZE)) >> $(OS_IMAGE) 2>/dev/null; \
+	  if [ $$SIZE -lt 8704 ]; then \
+	    dd if=/dev/zero bs=1 count=$$((8704 - $$SIZE)) >> $(OS_IMAGE) 2>/dev/null; \
 	  fi
 
 run: os-image

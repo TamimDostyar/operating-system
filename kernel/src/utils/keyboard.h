@@ -35,6 +35,7 @@ enum SCAN {
     scanP = 0x19,
     scanLeftBracket = 0x1A,  // [ {
     scanRightBracket = 0x1B, // ] }
+    scanBackSlash = 0x2B,
     scanEnter = 0x1C,
 
     // Home row
@@ -95,6 +96,7 @@ enum SCAN {
     scanDownArrow = 0x50,
     scanLeftArrow = 0x4B,
     scanRightArrow = 0x4D,
+
 
 };
 
