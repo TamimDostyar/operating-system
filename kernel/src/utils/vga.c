@@ -7,6 +7,8 @@ static uint16_t * const VGA_MEMORY = (uint16_t*)0xB8000;
 static int cursor_row = 0;
 static int cursor_col = 0;
 static uint8_t vga_current_color = 0;
+static int protected_row = 0;
+static int protected_col = 0;
 
 static inline uint8_t vga_make_color(uint8_t fg, uint8_t bg) {
     return (bg << 4) | (fg & 0x0F);
@@ -55,7 +57,17 @@ void vga_putchar(char c) {
         cursor_row++;
         cursor_col = 0;
     } else if(c == '\b'){
-        if (cursor_col > 0) cursor_col --;
+        int next_col = cursor_col - 1;
+        int next_row = cursor_row;
+        if (next_col < 0) {
+            next_row--;
+            next_col = VGA_WIDTH - 1;
+        }
+        if (next_row < protected_row || (next_row == protected_row && next_col < protected_col)) {
+            return;
+        }
+        cursor_col = next_col;
+        cursor_row = next_row;
         VGA_MEMORY[cursor_row * VGA_WIDTH + cursor_col] = vga_entry(' ', vga_current_color);
     }
     
@@ -70,6 +82,11 @@ void vga_putchar(char c) {
     if (cursor_row >= VGA_HEIGHT) {
         vga_scroll();
     }
+}
+
+void vga_lock_cursor(void) {
+    protected_row = cursor_row;
+    protected_col = cursor_col;
 }
 
 // write in the position of the cursor

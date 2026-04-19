@@ -1,3 +1,6 @@
+#ifndef KEYBOARD_H
+#define KEYBOARD_H
+
 enum SCAN {
     // Escape
     scanESC = 0x01,
@@ -62,7 +65,7 @@ enum SCAN {
     scanSlash = 0x35,       // / ?
     scanRightShift = 0x36,
 
-    // Modifier keys
+    // Modifier keys // may need ctrl for future features
     scanLeftCtrl = 0x1D,
     scanLeftAlt = 0x38,
     scanSpace = 0x39,
@@ -70,7 +73,7 @@ enum SCAN {
     scanRightAlt = 0xE038,  // extended, handle separately
     scanRightCtrl = 0xE01D, // extended
 
-    // Function keys
+    // Function keys // may need them later but not now
     scanF1 = 0x3B,
     scanF2 = 0x3C,
     scanF3 = 0x3D,
@@ -86,17 +89,13 @@ enum SCAN {
 
     // Editing keys
     scanDelete = 0x53,
-    scanInsert = 0x52,
-    scanHome = 0x47,
-    scanEnd = 0x4F,
-    scanPageUp = 0x49,
-    scanPageDown = 0x51,
 
     // Arrow keys 
     scanUpArrow = 0x48,
     scanDownArrow = 0x50,
     scanLeftArrow = 0x4B,
     scanRightArrow = 0x4D,
+
 };
 
 static inline int isUpper(char c){ return c >= 'A' && c <= 'Z'; }
@@ -106,3 +105,5 @@ static inline int isNumber(char c){ return c >= '0' && c <= '9'; }
 int keyboard_init(void);
 void keyboardHandler(void);
 char keyboard_getchar(void);
+
+#endif

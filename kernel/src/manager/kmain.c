@@ -8,16 +8,13 @@ void kmain(void) {
     int keyboardOutput = keyboard_init();
     int idtOutput = idt_install();
 
-    if (!(keyboardOutput == 1 || idtOutput == 1 || vgaOutput == 1)){
-        vga_write("Kernel failed!");
-    } else {
-        vga_write("Kernel is running successfully!\n");
-        vga_write("To test the keyboard type characters\n");
-        vga_write("\n");
-    }
-
     // set interrupt 
     __asm__ volatile("sti");
+    vga_write("Kernell is working and running successfully\n");
+    vga_lock_cursor();
+
+    vga_write("buddyOS> ");
+    vga_lock_cursor();
 
 
     for (;;) {
