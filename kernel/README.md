@@ -90,3 +90,14 @@ Tiny helpers for reading and writing hardware I/O ports using x86 `in`/`out` ins
 | `outb(port, data)` | Writes 1 byte to a hardware port |
 | `inw(port)` | Reads 2 bytes from a hardware port |
 | `outw(port, data)` | Writes 2 bytes to a hardware port |
+
+
+---
+
+## Goals
+
+- Add the `kai/` AI kernel subsystem alongside the scheduler and memory manager — same privilege level, same visibility into process tables, page faults, and hardware state
+- Expose kernel data structures to buddyGPT through a safe read channel so the model can reason about what the OS is doing in real time
+- Implement `sys_ask()` — a natural-language syscall that lets any process query the AI kernel subsystem directly
+- Replace the keyboard echo loop with BuddyShell as the first userspace process the kernel hands control to
+- Eventually route all unrecognized input through buddyGPT before falling back to a standard error

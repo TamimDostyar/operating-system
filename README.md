@@ -79,3 +79,7 @@ My goal:
   - Create OS from scratch on C
   - Integerate CLI AI entirely in the system
   - Train an entire LLM to perform Google Search and pull the command and run
+
+
+## CLI REPOSITORY - [buddyCLI](https://github.com/TamimDostyar/buddy)
+## GPT REPOSITORY - [buddyGPT](https://github.com/TamimDostyar/buddyGPT)
