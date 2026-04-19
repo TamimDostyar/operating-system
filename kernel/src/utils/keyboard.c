@@ -141,7 +141,7 @@ void keyboardHandler(void) {
             case scanBackQuote: c = '~'; break;
             case scanComma: c = '<'; break;
             case scanDot: c = '>'; break;
-            
+            case scanSemicolon: c = ':'; break;   
         }
     }
 
