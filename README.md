@@ -73,3 +73,9 @@ Authoritative milestone text, testing checklists, and suggested source layouts l
 
 This project will eventually be used to run BuddyAI, which is currently under development. You can find the BuddyAI repository here: [REPO FOR BUDDY AI](https://github.com/TamimDostyar/buddy/)
 The LLM which I will eventually use is trained on my own, the repo can be found on [AI REPOSITORY](https://github.com/TamimDostyar/TD_GPT)
+
+
+My goal:
+  - Create OS from scratch on C
+  - Integerate CLI AI entirely in the system
+  - Train an entire LLM to perform Google Search and pull the command and run
