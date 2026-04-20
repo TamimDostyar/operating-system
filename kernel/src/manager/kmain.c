@@ -11,9 +11,9 @@ void kmain(void) {
 
     // heap
     heap_init();
-
+    int *memory = kmalloc(sizeof(memory));
+    kfree(memory);
     
-
     // set interrupt 
     __asm__ volatile("sti");
     vga_write("Kernell is working and running successfully\n");

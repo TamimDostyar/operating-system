@@ -28,4 +28,12 @@ void  heap_init(void);
 void *kmalloc(size_t size);
 void  kfree(void *ptr);
 
+
+#ifdef DEBUG
+#define KASSERT(cond) if (!(cond)) { __asm__ volatile("hlt"); }
+#else
+#define KASSERT(cond)
+#endif
+
+
 #endif
