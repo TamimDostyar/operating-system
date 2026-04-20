@@ -17,6 +17,6 @@ void *kmalloc(size_t size){
 
 void kfree(void *ptr){
     if (!ptr) return;
-    block_header_t *hdr = (block_header_t*) HEAP_START;
+    block_header_t *hdr = (block_header_t*) ptr-1;
     hdr->isFree=1;
 }
