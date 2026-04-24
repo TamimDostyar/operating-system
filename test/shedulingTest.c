@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "process.h"
-#include "scheduler.h"
-#include "heap.h"
+#include "../scheduling/src/process.h"
+#include "../scheduling/src/scheduler.h"
+#include "../alloc/src/heap.h"
 
 int main(){
     heap_init();

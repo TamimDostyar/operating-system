@@ -1,4 +1,4 @@
 clang -I/Users/tamimdostyar/Documents/personal/buddySystem/buddyOS/alloc/src \
       -I/Users/tamimdostyar/Documents/personal/buddySystem/buddyOS/kernel/src \
-      -I/Users/tamimdostyar/Documents/personal/buddySystem/buddyOS/processScheduler/src \
+      -I/Users/tamimdostyar/Documents/personal/buddySystem/buddyOS/scheduling/src \
       -m32

@@ -79,10 +79,12 @@ Implements a simple first-come-first-served ready queue using a circular buffer.
 
 ## Build and Run
 
-From the `processScheduler` directory:
+From the `scheduling` directory:
 
 ```bash
-clang -DTEST -Isrc -I../alloc/src -o main src/process.c src/scheduler.c test.c ../alloc/src/kmalloc.c ../alloc/src/heap.c
+You will need to be on the test folder
+
+clang -DTEST -I../scheduling/src -I../alloc/src -o scheduling ../scheduling/src/process.c ../scheduling/src/scheduler.c shedulingTest.c ../alloc/src/kmalloc.c ../alloc/src/heap.c
 ./main
 ```
 
