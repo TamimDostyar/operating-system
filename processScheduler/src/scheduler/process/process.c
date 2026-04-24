@@ -1,20 +1,37 @@
 #include "process.h"
+#include "heap.h"
 
 Pid_t pid_t;
 
+static inline int fork(Pid_t *pid_t) {
 
-static inline int fork(){
-    int currentPID = pid_t.processNumber;
-    if (currentPID == 0){
-        exit();
-        return 0;
-
-    } else {
-        /
-        currentPID ++;
+    if (pid_t->processTable == NULL) {
+        pid_t->processTable = kmalloc(sizeof(Process) * MAX_PROCESSES);
+        if (pid_t->processTable == NULL) {
+            return -1; // allocation failed
+        }
     }
-    // meaning it is running
-    int pid_t.processState = 1;
+
+    int currentSlot = -1;
+
+    for (int i = 2; i < MAX_PROCESSES; i++) {
+        if (pid_t->slotsTaken[i] == 0) {
+            currentSlot = i;
+            pid_t->slotsTaken[i] = 1;
+            
+            // Initialize the process
+            pid_t->processTable[i].processNumber = i;
+            pid_t->processTable[i].processState = PROCESS_RUNNING;
+            
+            break;               
+        }
+    }
+
+    if (currentSlot == -1) {
+        return -1; // no free PID slots available
+    }
+
+    return currentSlot;
 }
 
 
