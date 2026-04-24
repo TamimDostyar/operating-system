@@ -1,12 +1,14 @@
 #include "process.h"
 #include "heap.h"
-
 Pid_t pid_t;
 
-static inline int fork(Pid_t *pid_t, int parentPID) {
-
+int fork(Pid_t *pid_t, int parentPID) {
     if (pid_t->processTable == NULL) {
-        pid_t->processTable = kmalloc(sizeof(Process) * MAX_PROCESSES);
+        Process *ptr = kmalloc(sizeof(Process) * MAX_PROCESSES);
+        if (ptr == NULL) {
+            return -1; // allocation failed
+        }
+        pid_t->processTable = ptr;
         if (pid_t->processTable == NULL) {
             return -1; // allocation failed
         }
@@ -35,7 +37,7 @@ static inline int fork(Pid_t *pid_t, int parentPID) {
 }
 
 
-static inline int exit_process(Pid_t *manager, int pid){
+int exit_process(Pid_t *manager, int pid){
     if (pid < 2 || pid >= MAX_PROCESSES) {
         return -1;  // Invalid PID
     }
@@ -52,7 +54,7 @@ static inline int exit_process(Pid_t *manager, int pid){
     return 0;
 }
 
-static inline int wait(Pid_t *manager, int parentPID){
+int wait(Pid_t *manager, int parentPID){
     int childRunning = 1;
     
     while (childRunning) {
@@ -65,11 +67,6 @@ static inline int wait(Pid_t *manager, int parentPID){
                 childRunning = 1;
                 break;  // Found a running child, stop checking
             }
-        }
-        
-        // If children still running, sleep then check again
-        if (childRunning) {
-            sleep(1);
         }
     }
     return 0;

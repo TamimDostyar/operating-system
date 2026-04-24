@@ -1,3 +1,6 @@
+#ifndef PROCESS_H
+#define PROCESS_H
+
 #include "heap.h"
 
 
@@ -7,7 +10,6 @@
 #define PROCESS_WAITING 2
 #define PROCESS_STOPPED 3
 
-// Individual process data
 typedef struct {
     int processNumber;
     int parentPID;
@@ -21,3 +23,9 @@ typedef struct {
     int processSlot;            // current process's PID
     int totalSlots;             // total number of slots
 } Pid_t;
+
+int fork(Pid_t *pid_t, int parentPID);
+int exit_process(Pid_t *manager, int pid);
+int wait(Pid_t *manager, int parentPID);
+
+#endif

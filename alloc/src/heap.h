@@ -7,15 +7,12 @@
 
 
 #define HEAP_SIZE (1024 * 1024)
-//below needs to get commented and uncomment line 13-18 for testing purpose!!!
+#ifdef TEST
+extern char heap_buffer[HEAP_SIZE];
+#define HEAP_START ((uintptr_t)heap_buffer)
+#else
 #define HEAP_START 0x200000
-
-// #ifdef TEST
-// extern char heap_buffer[HEAP_SIZE];
-// #define HEAP_START ((uintptr_t)heap_buffer)
-// #else
-// #define HEAP_START 0x200000
-// #endif
+#endif
 
 typedef struct block_header{
     struct block_header *next;

@@ -1,16 +1,15 @@
 #include "scheduler.h"
-#include "process.h"
 
-static inline void init_scheduler(QueueScheduler *scheduler) {
+void init_scheduler(QueueScheduler *scheduler) {
     scheduler->queueHead = 0;
     scheduler->queueTail = 0;
     scheduler->queueSize = 0;
     scheduler->currentPID = -1;
 }
 
-static inline int enqueue(QueueScheduler *scheduler, int pid) {
+int enqueue(QueueScheduler *scheduler, int pid) {
     if (scheduler->queueSize >= MAX_QUEUE_SIZE) {
-        return -1;  // Queue full
+        return -1; 
     }
     
     scheduler->readyQueue[scheduler->queueTail] = pid;
@@ -20,9 +19,9 @@ static inline int enqueue(QueueScheduler *scheduler, int pid) {
     return 0;
 }
 
-static inline int dequeue(QueueScheduler *scheduler) {
+int dequeue(QueueScheduler *scheduler) {
     if (scheduler->queueSize == 0) {
-        return -1;  // No process ready
+        return -1; 
     }
     
     int pid = scheduler->readyQueue[scheduler->queueHead];
@@ -33,7 +32,7 @@ static inline int dequeue(QueueScheduler *scheduler) {
 }
 
 // Schedule next process to run
-static inline int schedule(QueueScheduler *scheduler) {
+int schedule(QueueScheduler *scheduler) {
     int nextPID = dequeue(scheduler);
     
     if (nextPID == -1) {

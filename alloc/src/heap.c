@@ -1,8 +1,8 @@
 #include "heap.h"
 
-// #ifdef TEST
-// char heap_buffer[HEAP_SIZE];
-// #endif
+#ifdef TEST
+char heap_buffer[HEAP_SIZE];
+#endif
 
 void heap_init(void){
     block_header_t *start = (block_header_t*) HEAP_START;
